@@ -1,0 +1,50 @@
+<div style="background-color: #e5f3fe; width: 100%">
+  {% extends 'experiments/main.html' %} {% block content %} {% load static %}
+
+  <h3
+    style="
+      text-align: center;
+      color: white;
+      font-family: 'Roboto Mono', monospace;
+      font-weight: 400;
+      background-color: #00538a;
+      padding: 15px 0px;
+    "
+  >
+    <!-- font-family: 'Baloo Paaji 2', cursive; -->
+    Analog Integrated Circuits Virtual Laboratory
+  </h3>
+  <h1
+    style="
+      text-align: center;
+      color: black;
+      font-family: 'Roboto Mono', monospace;
+      font-weight: 600;
+      margin: 40px 0px;
+    "
+  >
+    <!-- font-family: 'Baloo Paaji 2', cursive; -->
+    List Of Experiments
+  </h1>
+  <div style="margin: 0px 12.5%">
+    {% for experiment in experiments %}
+    <div>
+      <a
+        class="h1"
+        style="background-color: white; border: #012943 4px solid"
+        href="{% url 'experiment' experiment.id %}"
+      >
+        <p class="p1" style="color: black; font-family: 'Roboto Mono', monospace; font-weight: 600;">{{experiment.id}}</p>
+        <p class="p2" style="color: black; font-family: 'Roboto Mono', monospace; font-weight: 600;">{{experiment.name}}</p>
+      </a>
+    </div>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+      crossorigin="anonymous"
+    ></script>
+    {% endfor %}
+  </div>
+  {% endblock content %}
+</div>

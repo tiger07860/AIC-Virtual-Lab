@@ -1,0 +1,284 @@
+{%extends 'experiments/main.html' %} {% load static %} {% block content %}
+
+<h3 style="text-align: center; color:bl; background-color: #00538a; padding:10px 0px; color:white">Inverting Amplifier
+</h3>
+<div class="a">
+    <div>
+        <div class="sim-cont">
+            <div class="sim-circuit">
+                <img class="sim-circuit-img"
+                    src="https://www.electronics-tutorials.ws/wp-content/uploads/2018/05/opamp-opamp15.gif" />
+            </div>
+            <div class="sim-control-cont"
+                style="border: #00538a 4px solid; width: 600PX; height: auto;margin-left: 400PX;">
+                <div style="
+                    color: white;
+                    font-size: 2rem;
+                    background-color: #00538a;
+                    width: 100%;
+                    text-align: center;
+                  ">
+                    Controls
+                </div>
+<form action="" method="POST">
+    {% csrf_token %}
+    <div class="sim-scroll">
+
+    <label for="rf">R<sub>f</sub>: </label>
+    <input name="rf" type="range" step="1" max="50" min="1" value="{{Rf}}" />
+    <input
+        type="number"
+        max="50"
+        min="1"
+        value="{{Rf}}"
+        step="1"
+        source="[name=rf]"
+          class="sim-scroll-input sim-input-val"
+
+    />
+    </div>
+    {% for key, value in errors.items %}
+        {% if key == "Rf_err" %}
+            <sub>{{ value }}</sub> 
+        {% endif %} 
+    {% endfor %}
+    <div class="sim-scroll">
+
+    <label for="r1">R<sub>1</sub>: </label>
+    <input name="r1" type="range" step="1" max="50" min="1" value="{{R1}}" />
+    <input
+        type="number"
+        max="50"
+        min="1"
+        value="{{R1}}"
+        step="1"
+        source="[name=r1]"
+          class="sim-scroll-input sim-input-val"
+
+    />
+    </div>
+    {% for key, value in errors.items %}
+        {% if key == "R1_err" %}
+            <sub>{{ value }}</sub> 
+        {% endif %} 
+    {% endfor %}
+    <div class="sim-scroll">
+
+    <label for="r2">R<sub>2</sub>: </label>
+    <input name="r2" type="range" step="1" max="50" min="1" value="{{R2}}" />
+    <input
+        type="number"
+        max="50"
+        min="1"
+        value="{{R2}}"
+        step="1"
+        source="[name=r2]"
+          class="sim-scroll-input sim-input-val"
+
+    />
+    </div>
+
+    {% for key, value in errors.items %}
+        {% if key == "R2_err" %}
+            <sub>{{ value }}</sub> 
+        {% endif %} 
+    {% endfor %}
+    <div class="sim-scroll">
+
+    <label for="r3">R<sub>3</sub>: </label>
+    <input name="r3" type="range" step="1" max="50" min="1" value="{{R3}}" />
+    <input
+        type="number"
+        max="50"
+        min="1"
+        value="{{R3}}"
+        step="1"
+        source="[name=r3]"
+          class="sim-scroll-input sim-input-val"
+
+    />
+    </div>
+    {% for key, value in errors.items %}
+        {% if key == "R3_err" %}
+            <sub>{{ value }}</sub> 
+        {% endif %} 
+    {% endfor %}
+    <div class="sim-scroll">
+
+    <label for="a1">A<sub>1</sub>: </label>
+    <input name="a1" type="range" step="1" max="10" min="1" value="{{A1}}" />
+    <input
+        type="number"
+        max="10"
+        min="1"
+        value="{{A1}}"
+        step="1"
+        source="[name=a1]"
+          class="sim-scroll-input sim-input-val"
+
+    />
+    </div>
+    {% for key, value in errors.items %}
+        {% if key == "A1_err" %}
+            <sub>{{ value }}</sub> 
+        {% endif %} 
+    {% endfor %}
+    <div class="sim-scroll">
+
+    <label for="a2">A<sub>2</sub>: </label>
+    <input name="a2" type="range" step="1" max="10" min="1" value="{{A2}}" />
+    <input
+        type="number"
+        max="10"
+        min="1"
+        value="{{A2}}"
+        step="1"
+        source="[name=a2]"
+          class="sim-scroll-input sim-input-val"
+
+    />
+    </div>
+    {% for key, value in errors.items %}
+        {% if key == "A2_err" %}
+            <sub>{{ value }}</sub> 
+        {% endif %} 
+    {% endfor %}
+    <div class="sim-scroll">
+
+    <label for="a3">A<sub>3</sub>: </label>
+    <input name="a3" type="range" step="1" max="10" min="1" value="{{A3}}" />
+    <input
+        type="number"
+        max="10"
+        min="1"
+        value="{{A3}}"
+        step="1"
+        source="[name=a3]"
+          class="sim-scroll-input sim-input-val"
+
+    />
+    </div>
+
+    {% for key, value in errors.items %}
+        {% if key == "A3_err" %}
+            <sub>{{ value }}</sub> 
+        {% endif %} 
+    {% endfor %}
+    <div class="sim-scroll">
+    <label for="freq1">freq<sub>1</sub>: </label>
+    <input name="freq1" type="range" step="1" max="10" min="1" value="{{freq1}}" />
+    <input
+        type="number"
+        max="10"
+        min="1"
+        value="{{freq1}}"
+        step="1"
+        source="[name=freq1]"
+          class="sim-scroll-input sim-input-val"
+
+    />
+    </div>
+
+    {% for key, value in errors.items %}
+        {% if key == "freq1_err" %}
+            <sub>{{ value }}</sub> 
+        {% endif %} 
+    {% endfor %}
+    <div class="sim-scroll">
+    <label for="freq2">freq<sub>2</sub>: </label>
+    <input name="freq2" type="range" step="1" max="10" min="1" value="{{freq2}}" />
+    <input
+        type="number"
+        max="10"
+        min="1"
+        value="{{freq2}}"
+        step="1"
+        source="[name=freq2]"
+          class="sim-scroll-input sim-input-val"
+
+    />
+    </div>
+
+{% for key, value in errors.items %}
+        {% if key == "freq2_err" %}
+            <sub>{{ value }}</sub> 
+        {% endif %} 
+    {% endfor %}
+    <div class="sim-scroll">
+
+    <label for="freq3">freq<sub>3</sub>: </label>
+    <input name="freq3" type="range" step="1" max="10" min="1" value="{{freq3}}" />
+    <input
+        type="number"
+        max="10"
+        min="1"
+        value="{{freq3}}"
+        step="1"
+        source="[name=freq3]"
+          class="sim-scroll-input sim-input-val"
+
+    />
+    </div>
+    {% for key, value in errors.items %}
+        {% if key == "freq3_err" %}
+            <sub>{{ value }}</sub> 
+        {% endif %} 
+    {% endfor %}
+    <div class="sim-scroll">
+
+    <label for="choice1">Choice<sub>1</sub>: </label>
+    <select name="choice1">
+        <option value="none">Select an Option</option>
+        <option value="sin">Sin wave</option>
+        <option value="square">Square wave</option>
+    </select>
+    </div>
+    {% for key, value in errors.items %}
+        {% if key == "choice1_err" %}
+            <sub>{{ value }}</sub> 
+        {% endif %} 
+    {% endfor %}
+    <div class="sim-scroll">
+
+    <label for="choice2">Choice<sub>1</sub>: </label>
+    <select name="choice2">
+        <option value="none" >Select an Option</option>
+        <option value="sin">Sin wave</option>
+        <option value="square">Square wave</option>
+    </select>
+    </div>
+    {% for key, value in errors.items %}
+        {% if key == "choice2_err" %}
+            <sub>{{ value }}</sub> 
+        {% endif %} 
+    {% endfor %}
+    <div class="sim-scroll">
+
+    <label for="choice3">Choice<sub>1</sub>: </label>
+    <select name="choice3">
+        <option value="none" >Select an Option</option>
+        <option value="sin">Sin wave</option>
+        <option value="square">Square wave</option>
+    </select>
+    </div>
+    {% for key, value in errors.items %}
+        {% if key == "choice2_err" %}
+            <sub>{{ value }}</sub> 
+        {% endif %} 
+    {% endfor %}
+
+    <div class="sim-btn-cont">
+        <button type="submit" class="sim-sub-btn">Submit</button>
+    </div>
+</form>
+            </div>
+        </div>
+    </div>
+    </div>
+
+
+<h1>{{arg}}</h1>
+
+{{ graph|safe }}
+
+{% endblock %}

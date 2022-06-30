@@ -1,0 +1,15 @@
+{%extends 'experiments/main.html' %} {% load static %} {% block content %}
+
+<!-- <h1>Simulation</h1>
+<h1>{{arg}}</h1> -->
+
+<div class="sim-base-cont">
+  <a href="{% url 'simulation' '3a' %}">
+    <button class="sim-base-btn">Integrator</button></a
+  >
+  <a href="{% url 'simulation' '3b' %}">
+    <button class="sim-base-btn">Differentiator</button>
+  </a>
+</div>
+
+{% endblock %}

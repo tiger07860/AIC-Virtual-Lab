@@ -1,0 +1,167 @@
+{%extends 'experiments/main.html' %} {% load static %} {% block content %}
+
+<!-- <h1>Simulation</h1>
+<h1>{{arg}}</h1> -->
+
+<h3 style="text-align: center; color:bl; background-color: #00538a; padding:10px 0px; color:white">Low Pass Filter
+</h3>
+<div class="a">
+  <div class="b">
+    <div class="sim-cont">
+      <div class="sim-circuit">
+        <img class="sim-circuit-img"
+           src="{% static 'experiments\images\aic project\6.png' %}" 
+           style="width:100%;
+          height: 260px;
+          padding:10px;
+          padding-top: 0px;" />
+      </div>
+      <div class="sim-control-cont" style="border: #00538a 4px solid;width: 50%;">
+        <div style="
+                    color: white;
+                    font-size: 2rem;
+                    background-color: #00538a;
+                    width: 100%;
+                    text-align: center;
+                  ">
+          Controls
+        </div>
+    <form action="" method="POST">
+      {% csrf_token %}
+
+      <table>
+        {% for i in table%}
+        <tr>
+          {% for j in i %}
+          <td>
+            <input type="hidden" name="table" value="{{j}}" />
+          </td>
+          {% endfor %}
+        </tr>
+        {% endfor %}
+      </table>
+
+      <div class="sim-scroll">
+        <label for="c1">C1&nbsp;</label>
+        <input
+          name="c1"
+          type="range"
+          step="0.1"
+          max="5"
+          min="0.1"
+          value="{{C1_val}}"
+        />
+        <input
+          type="number"
+          max="5"
+          min="0.1"
+          value="{{C1_val}}"
+          step="0.1"
+          source="[name=c1]"
+          class="sim-scroll-input sim-input-val"
+        />
+        {% for key, value in errors.items %} {% if key == "C1_val_err" %}
+        <sub>{{ value }}</sub>
+        {% endif %} {% endfor %}
+      </div>
+      <div class="sim-scroll">
+        <label for="r1">R1&nbsp;&nbsp;</label>
+        <input
+          type="range"
+          min="1"
+          max="30"
+          step="0.1"
+          value="{{R1_val}}"
+          name="r1"
+        />
+        <input
+          type="number"
+          max="30"
+          min="1"
+          value="{{R1_val}}"
+          step="0.1"
+          source="[name=r1]"
+          class="sim-scroll-input sim-input-val"
+        />
+        {% for key, value in errors.items %} {% if key == "R1_val_err" %}
+        <sub>{{ value }}</sub>
+        {% endif %} {% endfor %}
+      </div>
+      <div class="sim-scroll">
+        <label for="r2">R2&nbsp;</label>
+        <input type="range" min="1" max="100" value="{{R2_val}}" name="r2" />
+        <input
+          type="number"
+          max="100"
+          min="1"
+          value="{{R2_val}}"
+          step="1"
+          source="[name=r2]"
+          class="sim-scroll-input sim-input-val"
+        />
+        {% for key, value in errors.items %} {% if key == "R2_val_err" %}
+        <sub>{{ value }}</sub>
+        {% endif %} {% endfor %}
+      </div>
+      <div class="sim-scroll">
+        <label for="r3">R3&nbsp;</label>
+        <input type="range" min="1" max="100" value="{{R3_val}}" name="r3" />
+        <input
+          type="number"
+          max="100"
+          min="1"
+          value="{{R3_val}}"
+          step="1"
+          source="[name=r3]"
+          class="sim-scroll-input sim-input-val"
+        />
+        {% for key, value in errors.items %} {% if key == "R3_val_err" %}
+        <sub>{{ value }}</sub>
+        {% endif %} {% endfor %}
+      </div>
+      <div class="sim-btn-cont">
+        <button type="submit" class="sim-sub-btn">Submit</button>
+      </div>
+    </form>
+  </div>
+</div>
+  </div>
+
+
+
+
+  <div style="display: flex; flex-direction:column;">
+    <div class="sim-table-cont">
+      <div style="height: 100%">
+        <div style="
+          background-color: #00538a;
+            text-align: center;
+            color: white;
+            font-size: 2rem;
+            font-weight:200;
+            margin-bottom: 0px;
+            align-items: center;
+          ">
+          <b> Experiment Table</b>
+        </div>
+        <table class="bro">
+          {% for i in table%}
+          <tr class="sim-table-tr bro">
+            {% for j in i %}
+            <td class="bro">{{j}}</td>
+            {% endfor %}
+          </tr>
+          {% endfor %}
+        </table>
+      </div>
+    </div>
+    <div style="width: 100%; text-align:center">
+      <button style="width: 20%; margin-top:30px; background-color:#00538a"><a href="{% url 'simulation' 6 %}"
+          style="color: white;">Refresh</a></button>
+    </div>
+  </div>
+  </div>
+  </div>
+<div class="sim-graph">{{ graph|safe }}</div>
+
+{% endblock %}

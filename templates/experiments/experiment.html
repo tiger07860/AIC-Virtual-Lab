@@ -1,0 +1,71 @@
+{%extends 'experiments/main.html' %} {% load static %} {% block content %}
+
+<div class="nav">
+  <div class="navbar1">
+    <!-- <a href="{% url 'experiments' %}">Home</a> -->
+    <!-- <a href="{% url 'experiments' %}">Experiments</a> -->
+  </div>
+</div>
+<h3
+  style="
+    text-align: right;
+    color: white;
+    margin: 0px;
+    height: 0px;
+  "
+
+>
+  <!-- font-family: 'Baloo Paaji 2', cursive; -->
+  <!-- <a href="#aim">Aim</a>
+  <a href="#theory">Theory</a>
+  <a href="#procedure">Procedure</a>
+  {% for theory in experiment.theory_list %}{% if theory.simulation %}
+  <a href="{% url 'simulation' theory.simulation %}">Simulation</a>
+  {% endif %}{% endfor %}
+  <a href="#summary">Summary</a> -->
+  <!-- Analog Integrated Circuits Virtual Laboratory -->
+  {% for theory in experiment.theory_list %}{% if theory.simulation %}
+  <a href="{% url 'simulation' theory.simulation %}" class="yash">Simulation</a>
+  {% endif %}{% endfor %}
+</h3>
+
+<div class="body2">
+  <div class="k k3" id="aim">
+    <h2 class="k1 k2">AIM</h2>
+    <p class="l1" style="font-size: 3rem">{{experiment.name}}</p>
+  </div>
+  <div id="theory">
+    <h2 class="k k1 k2">THEORY</h2>
+  </div>
+  {% for theory in experiment.theory_list %} {% for text in theory.texts %}
+  <div class="l">
+    <p class="l1">{{text}}</p>
+  </div>
+  {% endfor %}
+  <div class="j">
+    {% for image in theory.images %}
+    <img src="{% static image %}" class="n" />
+    {% endfor %}
+  </div>
+  <!-- {% if theory.simulation %}
+<br>
+<a class="m k m1" href="{% url 'simulation' theory.simulation %}"> Simulation </a>
+{% endif %}-->
+  {% endfor %}
+  <!-- <div id="procedure">
+    <h2 class="k k1 k2">PROCEDURE</h2>
+  </div>
+
+  {% for text in experiment.procedure %}
+  <p class="l l1">{{text}}</p>
+  {% endfor %}
+
+  <div id="summary">
+    <h2 class="k k1 k2">SUMMARY</h2>
+  </div>
+
+  {% for text in experiment.summary %}
+  <p class="l l1">{{text}}</p> -->
+
+  {% endfor %}{% endblock %}
+</div>

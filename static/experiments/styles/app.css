@@ -1,0 +1,308 @@
+/* Graph Universal size : figsize=(10, 4)*/
+
+/* NavBar */
+
+.header {
+  background-color: #003a61;
+  height: 100px;
+
+  /* border-radius: 10px; */
+}
+
+.container {
+  display: flex;
+  flex-direction: row;
+  font-size: 2rem;
+  padding: 5px 2px;
+  height: 100%;
+  align-items: center;
+}
+
+.header__menu {
+  display: flex;
+
+  flex-direction: row;
+}
+
+.header__menuItem {
+  margin-left: 5rem;
+  list-style-type: none;
+  color: black;
+}
+
+/* Link on Exps Page*/
+
+.h1 {
+  display: flex;
+  flex-direction: row;
+  /* background-color: rgb(230, 222, 212); */
+  background-color: #286fb4;
+  color: white;
+  margin: 10px;
+  padding: 10px 10px;
+  border-radius: 10px;
+}
+
+.p1 {
+  padding: 5px;
+  margin: 2px 2px;
+  color: black;
+}
+
+.p2 {
+  padding: 5px;
+  margin: 2px 2px;
+  color: black;
+}
+
+/* Simulation*/
+
+.sim-circuit {
+  text-align: center;
+  width: 50%;
+  border: 10px;
+}
+
+.sim-control-cont {
+  display: flex;
+  flex-direction: column;
+  /* text-align: center; */
+  align-items: center;
+  width: 30%;
+  height: 246px;
+}
+
+.sim-cont {
+  display: flex;
+  flex-direction: row;
+  margin-top: 50px;
+}
+
+.sim-btn-cont {
+  display: block;
+  text-align: center;
+}
+
+.sim-scroll {
+  margin: 7px;
+  color: black;
+}
+
+.sim-sub-btn {
+  margin: 4px;
+  width: 10rem;
+  color: black;
+  background-color: #00538a;
+  color: white;
+  font-size: 1.5rem;
+}
+
+.sim-sub-btn:hover {
+  background-color: rgb(53, 50, 50);
+  color: aliceblue;
+}
+
+.sim-graph {
+  display: block;
+  text-align: center;
+  margin-top: 50px;
+}
+
+.sim-head {
+  color: black;
+  text-align: center;
+  margin: 40px;
+}
+
+.sim-scroll-input {
+  width: 8rem;
+}
+
+.sim-base-cont {
+  margin: 18% 33%;
+}
+
+.sim-base-btn {
+  margin: 5px 4px;
+  padding: 5px 4px;
+  width: 20rem;
+  color: black;
+}
+
+/* .sim-table-cont {
+  display: flex;
+  text-align: center;
+  align-items: center;
+  margin-left: 30px;
+  width: 40%;
+} */
+.sim-table-cont {
+  display: flex;
+  text-align: center;
+  align-items: center;
+  margin-left: 30px;
+  width: 40%;
+  height: 246px;
+  margin-top: 50px;
+  width: fit-content;
+  /* background-color: #286fb4; */
+  border: solid 2px #00538a;
+  overflow: auto;
+}
+
+.yashTable {
+  width: 640px;
+  overflow: auto;
+  margin-right: 16px;
+}
+
+.bro {
+  border: 1.4px black solid;
+  color: black;
+  font-size: 2.1rem;
+  padding: 0px 15px;
+  /* font-weight: bolder; */
+}
+
+.sim-choice {
+  margin: 8px;
+  color: black;
+}
+
+.sim-input-val {
+  text-align: center;
+}
+
+.my-custom-scrollbar {
+  position: relative;
+  height: 200px;
+  overflow: auto;
+}
+
+.table-wrapper-scroll-y {
+  display: block;
+}
+
+.a {
+  display: flex;
+  flex-direction: row;
+}
+
+.b {
+  width: 60%;
+}
+
+/*  OLD CSSS */
+
+.k {
+  display: grid;
+  text-align: center;
+  align-items: center;
+  width: 100%;
+  margin-top: 0px;
+}
+
+.k1 {
+  font-family: "PT Serif", serif;
+  font-size: 4rem;
+  color: black;
+}
+
+.k2 {
+  padding-top: 70px;
+}
+
+.k3 {
+  padding-top: 24px;
+}
+
+.l1 {
+  font-size: 2rem;
+  font-family: "Noto Serif", serif;
+  /* color:#424242; */
+  color: #263238;
+}
+
+.m1 {
+  font-size: 4rem;
+  font-family: "Libre Baskerville", serif;
+}
+
+.n1 {
+  font-family: "Libre Baskerville", serif;
+}
+
+.l {
+  margin: 10px 10px;
+  padding: 10px 10px;
+  text-align: justify;
+}
+
+.m {
+  font-size: 3rem;
+}
+
+.j {
+  display: flex;
+  flex-direction: row;
+  height: 50%;
+}
+
+.body2 {
+  /* background-color: rgb(228, 228, 255); */
+  /* background-color: #BBDEFB; */
+  /* background-color: #80D8FF; */
+  /* background-color: #b3e5fc; */
+
+  padding: 0px 30px;
+  padding-bottom: 56px;
+}
+
+.nav {
+  overflow: hidden;
+  background-color: #333;
+  position: fixed;
+  /* Set the navbar to fixed position */
+  top: 0;
+  /* Position the navbar at the top of the page */
+  width: 100%;
+  /* Full width */
+  /* height: 100px; */
+}
+
+.nav a {
+  font-size: 2rem;
+  padding-top: 15px;
+  margin-left: 5px;
+  color: white;
+}
+
+.navbar1 a {
+  float: left;
+  font-family: "Baloo Paaji 2", cursive;
+  display: block;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  margin: 0px 30px;
+  font-size: 2.3rem;
+  /* height: 100px; */
+}
+
+.navbar1 a:hover {
+  background: #ddd;
+  color: black;
+  /* text-decoration: underline; */
+  /* border-bottom: 3px solid black;
+    border-top: 3px solid black; */
+}
+
+.yash {
+  background-color: #003a61;
+  font-size: 24px;
+  color: white;
+  margin-right: 36px;
+  position: relative;
+  top: -80px;
+}

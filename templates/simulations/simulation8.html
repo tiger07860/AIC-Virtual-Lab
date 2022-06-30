@@ -1,0 +1,152 @@
+{%extends 'experiments/main.html' %} {% load static %} {% block content %}
+<h3 style="text-align: center; color:bl; background-color: #00538a; padding:10px 0px; color:white">Low Pass F
+</h3>
+<div class="a">
+    <div class="b">
+        <div class="sim-cont">
+            <div class="sim-circuit">
+                <img class="sim-circuit-img"
+                    src="https://www.electronics-tutorials.ws/wp-content/uploads/2018/05/opamp-opamp15.gif" />
+            </div>
+            <div class="sim-control-cont" style="border: #00538a 4px solid;width: 50%;">
+                <div style="
+                    color: white;
+                    font-size: 2rem;
+                    background-color: #00538a;
+                    width: 100%;
+                    text-align: center;
+                  ">
+                    Controls
+                </div>
+<form action="" method="POST">
+    {% csrf_token %}
+
+    <table>
+        {% for i in table%}
+        <tr>
+            {% for j in i %}
+            <td>
+                <input type="hidden" name="table" value="{{j}}"/>
+            </td>
+            {% endfor %}
+        </tr>
+        {% endfor %}
+    </table>
+    <div class="sim-scroll">
+
+    <label for="Vin">V<sub>in</sub>: </label>
+    <input type="range" max="10" step="1" min="1" value="{{vin}}" name="Vin" />
+    <input
+        type="number"
+        max="10"
+        min="1"
+        step="1"
+        value="{{vin}}"
+        source="[name=Vin]"
+    />
+    </div>
+
+    {% for key, value in errors.items %}
+        {% if key == "vin_err" %}
+            <sub>{{ value }}</sub> 
+        {% endif %} 
+    {% endfor %}
+    <div class="sim-scroll">
+
+    <label for="Cval">C<sub>val</sub>: </label>
+    <input type="range" min="10" max="30" step="0.1" value="{{C_val}}" name="Cval" />
+    <input
+        type="number"
+        max="30"
+        min="10"
+        value="{{C_val}}"
+        step="0.1"
+        source="[name=Cval]"
+    />
+    </div>
+    {% for key, value in errors.items %}
+        {% if key == "C_val_err" %}
+            <sub>{{ value }}</sub> 
+        {% endif %} 
+    {% endfor %}
+    <div class="sim-scroll">
+
+    <label for="ohms">R: </label>
+    <input type="range" min="50" max="500" step="1" value="{{ohms}}" name="ohms" />
+    <input
+        type="number"
+        max="500"
+        min="50"
+        value="{{ohms}}"
+        step="1"
+        source="[name=ohms]"
+    />
+    </div>
+
+    {% for key, value in errors.items %}
+        {% if key == "ohms_err" %}
+            <sub>{{ value }}</sub> 
+        {% endif %} 
+    {% endfor %}
+    <div class="sim-scroll">
+
+    <label for="time">time: </label>
+    <input type="range" min="1" max="20" step="1" value="{{sim_time}}" name="time" />
+    <input
+        type="number"
+        max="20"
+        min="1"
+        value="{{sim_time}}"
+        step="1"
+        source="[name=time]"
+    /></div>
+    {% for key, value in errors.items %}
+        {% if key == "sim_time_err" %}
+            <sub>{{ value }}</sub> 
+        {% endif %} 
+    {% endfor %}
+    <div class="sim-btn-cont">
+        <button type="submit" class="sim-sub-btn">Submit</button>
+    </div>
+</form>
+            </div>
+            </div>
+            </div>
+
+
+<div style="display: flex; flex-direction:column; ">
+    <div class="sim-table-cont">
+        <div style="height: 100%">
+            <div style="
+          background-color: #00538a;
+            text-align: center;
+            color: white;
+            font-size: 2rem;
+            font-weight:200;
+            margin-bottom: 0px;
+            align-items: center;
+          ">
+                <b> Experiment Table</b>
+            </div>
+            <table class="bro">
+                {% for i in table%}
+                <tr class="sim-table-tr bro">
+                    {% for j in i %}
+                    <td class="bro">{{j}}</td>
+                    {% endfor %}
+                </tr>
+                {% endfor %}
+            </table>
+        </div>
+    </div>
+    <div style="width: 100%; text-align:center">
+        <button style="width: 20%; margin-top:30px; background-color:#00538a"><a href="{% url 'simulation' 6 %}"
+                style="color: white;">Refresh</a></button>
+    </div>
+</div>
+</div>
+</div>
+<div class="sim-graph">{{ graph|safe }}</div>
+
+
+{% endblock %}

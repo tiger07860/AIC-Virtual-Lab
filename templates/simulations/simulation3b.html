@@ -1,0 +1,106 @@
+{%extends 'experiments/main.html' %} {% load static %} {% block content %}
+
+<!-- <h1>Simulation</h1>
+<h1>{{arg}}</h1> -->
+<h3 style="text-align: center; color:bl; background-color: #00538a; padding:10px 0px; color:white">Differentiator
+</h3>
+<div class="a">
+  <div>
+    <div class="sim-cont">
+      <div class="sim-circuit">
+        <img class="sim-circuit-img"
+          src="https://www.electronics-tutorials.ws/wp-content/uploads/2018/05/opamp-opamp15.gif" />
+      </div>
+      <div class="sim-control-cont" style="border: #00538a 4px solid; width: 600PX; height: auto;margin-left: 400PX;">
+        <div style="
+                    color: white;
+                    font-size: 2rem;
+                    background-color: #00538a;
+                    width: 100%;
+                    text-align: center;
+                  ">
+          Controls
+        </div>
+    <form action="" method="POST">
+      {% csrf_token %}
+      <div class="sim-scroll">
+        <label for="R">R &emsp;&emsp;&emsp;&emsp;&nbsp;</label>
+        <input name="R" type="range" step="1" max="50" min="1" value="{{R}}" />
+        <input
+          type="number"
+          max="50"
+          min="1"
+          value="{{R}}"
+          step="1"
+          source="[name=R]"
+          class="sim-scroll-input sim-input-val"
+        />
+        {% for key, value in errors.items %} {% if key == "R_err" %}
+        <sub>{{ value }}</sub>
+        {% endif %} {% endfor %}
+      </div>
+      <div class="sim-scroll">
+        <label for="C">C &emsp;&emsp;&emsp;&emsp;&nbsp;</label>
+        <input
+          type="range"
+          step="0.1"
+          max="10"
+          min="1"
+          value="{{C}}"
+          name="C"
+        />
+        <input
+          type="number"
+          max="10"
+          min="1"
+          value="{{C}}"
+          step="0.1"
+          source="[name=C]"
+          class="sim-scroll-input sim-input-val"
+        />
+        {% for key, value in errors.items %} {% if key == "C_err" %}
+        <sub>{{ value }}</sub>
+        {% endif %} {% endfor %}
+      </div>
+      <div class="sim-scroll">
+        <label for="freq">Frequency </label>
+        <input
+          type="range"
+          step="1"
+          max="10"
+          min="1"
+          value="{{freq}}"
+          name="freq"
+        />
+        <input
+          type="number"
+          max="100"
+          min="1"
+          value="{{freq}}"
+          step="1"
+          source="[name=freq]"
+          class="sim-scroll-input sim-input-val"
+        />
+        {% for key, value in errors.items %} {% if key == "freq_err" %}
+        <sub>{{ value }}</sub>
+        {% endif %} {% endfor %}
+      </div>
+      <div class="sim-scroll sim-choice">
+        <label for="choice">Wave &emsp;&emsp;&nbsp;</label>
+        <select name="choice">
+          <option value="none">Select a Wave</option>
+          <option value="Sin">Sin wave</option>
+          <option value="Square">Square wave</option>
+        </select>
+        {% for key, value in errors.items %} {% if key == "choice_err" %}
+        <sub>{{ value }}</sub>
+        {% endif %} {% endfor %}
+      </div>
+      <div class="sim-btn-cont">
+        <button type="submit" class="sim-sub-btn">Submit</button>
+      </div>
+    </form>
+  </div>
+</div>
+<div class="sim-graph">{{ graph|safe }}</div>
+{% endblock %}
